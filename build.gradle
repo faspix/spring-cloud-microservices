@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'org.springmvc'
+group = 'com.faspix'
 version = '1.0-SNAPSHOT'
 
 repositories {
