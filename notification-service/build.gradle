@@ -21,7 +21,7 @@ jar {
 }
 
 ext {
-    set('springCloudVersion', "Hoxton.SR1")
+    set('springCloudVersion', "2024.0.0")
 }
 
 dependencyManagement {
@@ -36,9 +36,9 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-amqp"
     implementation "org.springframework.cloud:spring-cloud-starter-config"
     implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client"
-    implementation "org.springframework.cloud:spring-cloud-starter-sleuth"
     implementation "org.springframework.boot:spring-boot-starter-actuator"
-    implementation "org.springframework.cloud:spring-cloud-starter-netflix-hystrix"
+    implementation 'io.micrometer:micrometer-tracing:1.4.2'
+    implementation "org.springframework.cloud:spring-cloud-starter-netflix-hystrix:2.2.10.RELEASE"
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
