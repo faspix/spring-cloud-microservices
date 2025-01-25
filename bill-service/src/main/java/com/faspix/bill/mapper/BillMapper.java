@@ -5,7 +5,7 @@ import com.faspix.bill.dto.BillResponseDto;
 import com.faspix.bill.entity.Bill;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface BillMapper {
 
     Bill billRequestToBill(BillRequestDto dto);

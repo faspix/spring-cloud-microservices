@@ -1,9 +1,10 @@
 spring:
   application:
-    name: account-service
+    name: bill-service
+  config:
+    import: configserver:http://localhost:8001
   cloud:
     config:
-      uri: http://localhost:8001
       fail-fast: true
       password: admin
       username: user

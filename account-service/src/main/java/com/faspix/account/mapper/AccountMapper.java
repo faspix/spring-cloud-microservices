@@ -5,7 +5,7 @@ import com.faspix.account.dto.AccountResponseDto;
 import com.faspix.account.entity.Account;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface AccountMapper {
 
     Account accountRequestToAccount(AccountRequestDto dto);
