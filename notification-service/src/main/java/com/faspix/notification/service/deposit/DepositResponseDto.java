@@ -1,4 +1,4 @@
-package com.faspix.notification.service;
+package com.faspix.notification.service.deposit;
 
 import lombok.Data;
 

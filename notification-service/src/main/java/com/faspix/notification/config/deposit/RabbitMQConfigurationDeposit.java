@@ -1,6 +1,5 @@
-package com.faspix.notification.config;
+package com.faspix.notification.config.deposit;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.context.annotation.Bean;
@@ -8,14 +7,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableRabbit
-@RequiredArgsConstructor
-public class RabbitMQConfiguration {
+public class RabbitMQConfigurationDeposit {
 
     public static final String QUEUE_DEPOSIT = "js.deposit.notify";
     private static final String TOPIC_EXCHANGE_DEPOSIT = "js.deposit.notify.exchange";
     private static final String ROUTING_KEY_DEPOSIT = "js.key.deposit";
-
-    private final AmqpAdmin amqpAdmin;
 
     @Bean
     public TopicExchange depositExchange() {
@@ -34,6 +30,5 @@ public class RabbitMQConfiguration {
                 .to(depositExchange())
                 .with(ROUTING_KEY_DEPOSIT);
     }
-
 
 }

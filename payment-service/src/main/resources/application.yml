@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: payment-service
+  config:
+    import: configserver:http://localhost:8001
+  cloud:
+    config:
+      fail-fast: true
+      password: admin
+      username: user

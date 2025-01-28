@@ -36,6 +36,12 @@ spring:
             - Path=/deposits/**
           filters:
             - StripPrefix=0
+        - id: payment-service
+          uri: lb://payment-service
+          predicates:
+              - Path=/payments/**
+          filters:
+              - StripPrefix=0
 
 zuul:
   ignoredServices: '*'
