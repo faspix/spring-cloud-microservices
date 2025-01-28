@@ -8,6 +8,9 @@ import com.faspix.bill.service.BillService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @RequiredArgsConstructor
 public class BillController {
@@ -46,6 +49,16 @@ public class BillController {
     ) {
         Bill bill = billService.deleteBill(billId);
         return billMapper.billToBillResponse(bill);
+    }
+
+    @GetMapping("/account/{accountId}")
+    public List<BillResponseDto> getBillsByAccountId(
+            @PathVariable Long accountId
+    ) {
+        return billService.getBillsByAccountId(accountId)
+                .stream()
+                .map(billMapper::billToBillResponse)
+                .toList();
     }
 
 }

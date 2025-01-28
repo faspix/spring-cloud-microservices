@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -45,6 +46,10 @@ public class BillService {
         Bill bill = getBillById(billId);
         billRepository.delete(bill);
         return bill;
+    }
+
+    public List<Bill> getBillsByAccountId(Long accountId) {
+        return billRepository.getBillsByAccountId(accountId);
     }
 
 }
