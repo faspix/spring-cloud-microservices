@@ -6,10 +6,6 @@ hystrix:
           thread:
             timeoutInMilliseconds: 20000
 
-ribbon:
-  ReadTimeout: 20000
-  ConnectTimeout: 20000
-
 spring:
   cloud:
     gateway:
@@ -42,14 +38,6 @@ spring:
               - Path=/payments/**
           filters:
               - StripPrefix=0
-
-zuul:
-  ignoredServices: '*'
-  host:
-    connect-timeout-millis: 20000
-    socket-timeout-millis: 20000
-
-
 
 server:
   port: 8989
