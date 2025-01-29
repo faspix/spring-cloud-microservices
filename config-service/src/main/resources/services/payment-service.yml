@@ -22,5 +22,5 @@ spring:
       direct:
         default-requeue-rejected: true
 
-server:
-  port: 8095
+#server:
+#  port: 8095
