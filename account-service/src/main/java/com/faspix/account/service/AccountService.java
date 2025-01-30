@@ -31,9 +31,7 @@ public class AccountService {
     }
 
     public Account updateAccount(Long accountId, AccountRequestDto accountDto) {
-        Account existAccount = getAccountById(accountId);
-        Account account = new Account();
-        account.setAccountId(accountId);
+        Account account = getAccountById(accountId);
         account.setName(accountDto.getName());
         account.setPhone(accountDto.getPhone());
         account.setEmail(accountDto.getEmail());

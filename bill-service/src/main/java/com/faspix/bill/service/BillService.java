@@ -32,13 +32,12 @@ public class BillService {
     }
 
     public Bill updateBill(Long billId, BillRequestDto billDto) {
-        getBillById(billId);
-        Bill bill = billMapper.billRequestToBill(billDto);
-        bill.setId(billId);
-//        bill.setAccountId(billDto.getAccountId());
-//        bill.setAmount(billDto.getAmount());
-//        bill.setIsDefault(billDto.getIsDefault());
-//        bill.setOverdraftEnabled(billDto.getOverdraftEnabled());
+        Bill bill = getBillById(billId);
+        //Bill bill = billMapper.billRequestToBill(billDto);
+        bill.setAccountId(billDto.getAccountId());
+        bill.setAmount(billDto.getAmount());
+        bill.setIsDefault(billDto.getIsDefault());
+        bill.setOverdraftEnabled(billDto.getOverdraftEnabled());
         return billRepository.save(bill);
     }
 
