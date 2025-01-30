@@ -1,0 +1,4 @@
+CREATE DATABASE account_service_database;
+CREATE DATABASE bill_service_database;
+CREATE DATABASE deposit_service_database;
+CREATE DATABASE payment_service_database;
