@@ -55,8 +55,8 @@ public class DepositService {
         billServiceClient.updateBill(billId, newBill);
 
         AccountResponseDto accountResponseDto = accountServiceClient.getAccountById(existBill.getAccountId());
-        Deposit deposit = depositRepository.save(new Deposit(amount, billId,
-                OffsetDateTime.now(), accountResponseDto.getEmail()));
+        Deposit deposit = new Deposit(amount, billId,
+                OffsetDateTime.now(), accountResponseDto.getEmail());
         depositRepository.save(deposit);
 
         DepositResponseDto depositResponseDto = depositMapper.DepositToResponseDto(deposit);
