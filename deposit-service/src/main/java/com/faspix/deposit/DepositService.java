@@ -1,4 +1,4 @@
-package com.faspix.deposit.service;
+package com.faspix.deposit;
 
 import com.faspix.deposit.dto.*;
 import com.faspix.deposit.entity.Deposit;

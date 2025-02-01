@@ -2,7 +2,7 @@ package com.faspix.deposit.controller;
 
 import com.faspix.deposit.dto.DepositRequestDto;
 import com.faspix.deposit.dto.DepositResponseDto;
-import com.faspix.deposit.service.DepositService;
+import com.faspix.deposit.DepositService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

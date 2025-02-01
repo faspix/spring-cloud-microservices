@@ -1,4 +1,4 @@
-package com.faspix.deposit.service.config;
+package com.faspix.deposit.config;
 
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ public class H2DatabaseConfiguration {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("com.javastart.depositservice.repository");
+        em.setPackagesToScan("com.faspix.deposit.repository");
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         return em;
     }

@@ -1,4 +1,4 @@
-package com.faspix.deposit.service.utils;
+package com.faspix.deposit.utils;
 
 import com.faspix.deposit.dto.AccountResponseDto;
 import com.faspix.deposit.dto.BillResponseDto;

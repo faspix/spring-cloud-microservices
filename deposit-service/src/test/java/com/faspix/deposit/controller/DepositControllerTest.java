@@ -1,4 +1,4 @@
-package com.faspix.deposit.service.controller;
+package com.faspix.deposit.controller;
 
 import com.faspix.deposit.DepositApplication;
 import com.faspix.deposit.dto.AccountResponseDto;
@@ -8,7 +8,7 @@ import com.faspix.deposit.entity.Deposit;
 import com.faspix.deposit.repository.DepositRepository;
 import com.faspix.deposit.rest.AccountServiceClient;
 import com.faspix.deposit.rest.BillServiceClient;
-import com.faspix.deposit.service.config.H2DatabaseConfiguration;
+import com.faspix.deposit.config.H2DatabaseConfiguration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,7 +26,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import java.util.List;
 
-import static com.faspix.deposit.service.utils.dto.*;
+import static com.faspix.deposit.utils.dto.*;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
