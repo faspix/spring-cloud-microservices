@@ -1,4 +1,4 @@
-package com.faspix.deposit;
+package com.faspix.deposit.service;
 
 import com.faspix.deposit.dto.*;
 import com.faspix.deposit.entity.Deposit;
@@ -18,7 +18,7 @@ import java.time.OffsetDateTime;
 
 @Service
 @RequiredArgsConstructor
-public class DepositService {
+public class DepositServiceImpl implements DepositService {
 
     private static final String TOPIC_EXCHANGE_DEPOSIT = "js.deposit.notify.exchange";
     private static final String ROUTING_KEY_DEPOSIT = "js.key.deposit";

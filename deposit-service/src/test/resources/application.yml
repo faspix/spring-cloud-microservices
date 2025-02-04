@@ -1,4 +1,6 @@
 spring:
+  liquibase:
+    enabled: false
   config:
     import: optional:configserver:http::/localhost:8001
   datasource:

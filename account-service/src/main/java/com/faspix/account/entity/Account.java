@@ -27,6 +27,9 @@ public class Account {
     private OffsetDateTime creationDate;
 
     @ElementCollection
+    @CollectionTable(name = "account_bills",
+            joinColumns = @JoinColumn(name = "account_id"))
+    @Column(name = "bill_id")
     private List<Long> bills;
 
 

@@ -6,7 +6,6 @@ import com.faspix.deposit.mapper.DepositMapper;
 import com.faspix.deposit.repository.DepositRepository;
 import com.faspix.deposit.rest.AccountServiceClient;
 import com.faspix.deposit.rest.BillServiceClient;
-import com.faspix.deposit.DepositService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
