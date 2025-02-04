@@ -1,4 +1,4 @@
-version: '3.5'
+#version: '3.5'
 services:
   config-service:
     container_name: config-service
@@ -67,11 +67,6 @@ services:
     depends_on:
       - config-service
       - registry
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://postgres:8989/actuator/health" ]
-      interval: 10s
-      timeout: 5s
-      retries: 15
 
   notification-service:
     restart: on-failure
@@ -105,7 +100,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./init-db:/docker-entrypoint-initdb.d  # Автоматический запуск SQL-скриптов
+      - ./init-db:/docker-entrypoint-initdb.d
 
 volumes:
   postgres_data:

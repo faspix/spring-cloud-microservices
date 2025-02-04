@@ -2,8 +2,8 @@ spring:
   application:
     name: bill-service
   config:
-    #    import: configserver:http://config-service:8001
-    import: configserver:http://localhost:8001
+        import: configserver:http://config-service:8001
+#    import: configserver:http://localhost:8001
   cloud:
     config:
       fail-fast: true

@@ -8,7 +8,7 @@ spring:
           uri: https://github.com/faspix/spring-cloud-microservices-config.git
           clone-on-start: true
           basedir: c:/tmp/git-spring-cloud-microservices-config
-          default-label: localhost
+          default-label: main
   profiles:
     active: git
   security:
