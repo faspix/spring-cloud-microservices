@@ -29,7 +29,7 @@ import static org.mockito.ArgumentMatchers.anyLong;
 public class DepositServiceTest {
 
     @InjectMocks
-    private DepositService depositService;
+    private DepositServiceImpl depositService;
 
     @Mock
     private DepositRepository depositRepository;
