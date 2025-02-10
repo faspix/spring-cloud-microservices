@@ -1,18 +1,14 @@
 package com.faspix.payment.controller;
 
 import com.faspix.PaymentApplication;
-import com.faspix.dto.PaymentRequestDto;
 import com.faspix.dto.PaymentResponseDto;
 import com.faspix.entity.Payment;
-import com.faspix.exception.PaymentServiceException;
-import com.faspix.payment.config.H2DatabaseConfiguration;
 import com.faspix.repository.PaymentRepository;
 import com.faspix.rest.AccountServiceClient;
 import com.faspix.rest.BillServiceClient;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +19,6 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import static com.faspix.payment.utils.dto.*;
@@ -31,7 +26,7 @@ import static org.mockito.ArgumentMatchers.anyLong;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest(classes = {PaymentApplication.class, H2DatabaseConfiguration.class})
+@SpringBootTest(classes = {PaymentApplication.class})
 @AutoConfigureMockMvc
 public class PaymentControllerTest {
 

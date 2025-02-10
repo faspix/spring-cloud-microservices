@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
+import java.beans.Transient;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
@@ -33,7 +34,8 @@ public class DepositServiceImpl implements DepositService {
 
     private final RabbitTemplate rabbitTemplate;
 
-
+    @Override
+    @Transient
     public DepositResponseDto deposit(DepositRequestDto depositDto) {
         if (depositDto.getAccountId() == null && depositDto.getBillId() == null)
             throw new DepositServiceException("Account is null and bill is null");

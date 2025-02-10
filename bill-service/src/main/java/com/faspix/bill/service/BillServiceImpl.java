@@ -19,21 +19,23 @@ public class BillServiceImpl implements BillService {
 
     private final BillMapper billMapper;
 
+    @Override
     public Bill getBillById(Long billId) {
         return billRepository.findById(billId)
                 .orElseThrow(() -> new BillNotFoundException("Unable to find bill with id " + billId));
 
     }
 
+    @Override
     public Long createBill(BillRequestDto billDto) {
         Bill bill = billMapper.billRequestToBill(billDto);
         bill.setCreationDate(OffsetDateTime.now());
         return billRepository.save(bill).getId();
     }
 
+    @Override
     public Bill updateBill(Long billId, BillRequestDto billDto) {
         Bill bill = getBillById(billId);
-        //Bill bill = billMapper.billRequestToBill(billDto);
         bill.setAccountId(billDto.getAccountId());
         bill.setAmount(billDto.getAmount());
         bill.setIsDefault(billDto.getIsDefault());
@@ -41,12 +43,14 @@ public class BillServiceImpl implements BillService {
         return billRepository.save(bill);
     }
 
+    @Override
     public Bill deleteBill(Long billId) {
         Bill bill = getBillById(billId);
         billRepository.delete(bill);
         return bill;
     }
 
+    @Override
     public List<Bill> getBillsByAccountId(Long accountId) {
         return billRepository.getBillsByAccountId(accountId);
     }

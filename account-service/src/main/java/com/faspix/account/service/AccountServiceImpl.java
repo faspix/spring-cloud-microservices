@@ -18,18 +18,21 @@ public class AccountServiceImpl implements AccountService {
 
     private final AccountMapper accountMapper;
 
+    @Override
     public Account getAccountById(Long accountId) {
         return accountRepository.findById(accountId)
                 .orElseThrow(() -> new AccountNotFoundException("Unable to find account with id " + accountId)
                 );
     }
 
+    @Override
     public Long createAccount(AccountRequestDto accountDto) {
         Account account = accountMapper.accountRequestToAccount(accountDto);
         account.setCreationDate(OffsetDateTime.now());
         return accountRepository.save(account).getAccountId();
     }
 
+    @Override
     public Account updateAccount(Long accountId, AccountRequestDto accountDto) {
         Account account = getAccountById(accountId);
         account.setName(accountDto.getName());
@@ -39,6 +42,7 @@ public class AccountServiceImpl implements AccountService {
         return accountRepository.save(account);
     }
 
+    @Override
     public Account deleteAccount(Long accountId) {
         Account account = getAccountById(accountId);
         accountRepository.delete(account);

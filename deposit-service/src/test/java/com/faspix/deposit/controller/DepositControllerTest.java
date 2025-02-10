@@ -8,7 +8,6 @@ import com.faspix.deposit.entity.Deposit;
 import com.faspix.deposit.repository.DepositRepository;
 import com.faspix.deposit.rest.AccountServiceClient;
 import com.faspix.deposit.rest.BillServiceClient;
-import com.faspix.deposit.config.H2DatabaseConfiguration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,7 +30,7 @@ import static org.mockito.ArgumentMatchers.anyLong;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest(classes = {DepositApplication.class, H2DatabaseConfiguration.class})
+@SpringBootTest(classes = {DepositApplication.class})
 public class DepositControllerTest {
 
     private MockMvc mockMvc;
