@@ -6,6 +6,7 @@ import com.faspix.bill.entity.Bill;
 import com.faspix.bill.mapper.BillMapper;
 import com.faspix.bill.service.BillService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class BillController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Long createBill(
             @RequestBody BillRequestDto billDto
     ) {
@@ -44,6 +46,7 @@ public class BillController {
     }
 
     @DeleteMapping("{billId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public BillResponseDto deleteBill(
             @PathVariable Long billId
     ) {

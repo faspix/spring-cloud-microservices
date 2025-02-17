@@ -70,7 +70,8 @@ public class PaymentControllerTest {
         Assertions.assertEquals(payments.getFirst().getAmount().stripTrailingZeros(),
                 paymentResponseDto.getAmount().stripTrailingZeros());
         Assertions.assertEquals(payments.getFirst().getEmail(), paymentResponseDto.getEmail());
-
+        Mockito.verify(billServiceClient, Mockito.times(1)).getBillById(anyLong());
+        Mockito.verify(accountServiceClient, Mockito.times(1)).getAccountById(anyLong());
     }
 
     @Test
@@ -96,7 +97,8 @@ public class PaymentControllerTest {
         Assertions.assertEquals(payments.getFirst().getAmount().stripTrailingZeros(),
                 paymentResponseDto.getAmount().stripTrailingZeros());
         Assertions.assertEquals(payments.getFirst().getEmail(), paymentResponseDto.getEmail());
-
+        Mockito.verify(billServiceClient, Mockito.times(1)).getBillById(anyLong());
+        Mockito.verify(accountServiceClient, Mockito.times(1)).getAccountById(anyLong());
     }
 
 }

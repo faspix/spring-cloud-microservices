@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
@@ -31,8 +32,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest(classes = {DepositApplication.class})
+@AutoConfigureMockMvc
 public class DepositControllerTest {
 
+    @Autowired
     private MockMvc mockMvc;
 
     @Autowired
@@ -53,11 +56,6 @@ public class DepositControllerTest {
     @MockitoBean
     private RabbitTemplate rabbitTemplate;
 
-    @BeforeEach
-    public void init() {
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
-    }
-
 
     @Test
     public void createDeposit() throws Exception {
@@ -67,7 +65,6 @@ public class DepositControllerTest {
                 .thenReturn(billResponseDto);
         Mockito.when(accountServiceClient.getAccountById(anyLong()))
                 .thenReturn(accountResponseDto);
-
 
         MvcResult mvcResult = mockMvc.perform(post("/deposits")
                         .content(objectMapper.writeValueAsString(DEPOSIT_REQUEST_DTO))
@@ -82,6 +79,9 @@ public class DepositControllerTest {
         Assertions.assertEquals(depositResponseDto.getEmail(), deposits.getFirst().getEmail());
         Assertions.assertEquals(depositResponseDto.getAmount().stripTrailingZeros(),
                 deposits.getFirst().getAmount().stripTrailingZeros());
+
+        Mockito.verify(billServiceClient, Mockito.times(1)).getBillById(anyLong());
+        Mockito.verify(accountServiceClient, Mockito.times(1)).getAccountById(anyLong());
     }
 
 }

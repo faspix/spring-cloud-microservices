@@ -6,6 +6,7 @@ import com.faspix.account.entity.Account;
 import com.faspix.account.mapper.AccountMapper;
 import com.faspix.account.service.AccountService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,6 +26,7 @@ public class AccountController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Long createAccount(
             @RequestBody AccountRequestDto accountDto
     ){
@@ -41,6 +43,7 @@ public class AccountController {
     }
 
     @DeleteMapping("{accountId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public AccountResponseDto deleteAccount(
             @PathVariable Long accountId
     ) {

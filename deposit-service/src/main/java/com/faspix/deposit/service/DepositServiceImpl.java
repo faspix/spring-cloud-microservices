@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.beans.Transient;
 import java.math.BigDecimal;
@@ -35,7 +36,7 @@ public class DepositServiceImpl implements DepositService {
     private final RabbitTemplate rabbitTemplate;
 
     @Override
-    @Transient
+    @Transactional
     public DepositResponseDto deposit(DepositRequestDto depositDto) {
         if (depositDto.getAccountId() == null && depositDto.getBillId() == null)
             throw new DepositServiceException("Account is null and bill is null");
