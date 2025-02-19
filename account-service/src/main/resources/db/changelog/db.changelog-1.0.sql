@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS account (
 );
 
 -- changeset faspix:2
-CREATE TABLE IF NOT EXISTS account_bills (
+CREATE TABLE IF NOT EXISTS account_bill (
     account_id BIGINT NOT NULL,
     bill_id BIGINT NOT NULL,
     CONSTRAINT fk_accont_id FOREIGN KEY (account_id)

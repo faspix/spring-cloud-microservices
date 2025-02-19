@@ -1,9 +1,6 @@
 package com.faspix.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,12 +16,16 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long paymentId;
 
+    @Column(nullable = false)
     private BigDecimal amount;
 
+    @Column(nullable = false)
     private Long billId;
 
+    @Column(nullable = false)
     private OffsetDateTime creationDate;
 
+    @Column(nullable = false)
     private String email;
 
     public Payment(BigDecimal amount, Long billId, OffsetDateTime creationDate, String email) {
