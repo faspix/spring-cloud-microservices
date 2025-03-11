@@ -2,14 +2,14 @@
 services:
   config-service:
     container_name: config-service
-    build: config-service
+    build: ../config-service
     ports:
       - 8001:8001
 
   registry:
     container_name: registry
     restart: always
-    build: registry
+    build: ../registry
     ports:
       - 8761:8761
     depends_on:
@@ -18,7 +18,7 @@ services:
   gateway:
     container_name: gateway
     restart: always
-    build: gateway
+    build: ../gateway
     ports:
       - 8989:8989
     depends_on:
@@ -28,7 +28,7 @@ services:
   account-service:
     restart: on-failure
     container_name: account-service
-    build: account-service
+    build: ../account-service
     ports:
       - 8081:8081
     depends_on:
@@ -39,7 +39,7 @@ services:
   bill-service:
     restart: on-failure
     container_name: bill-service
-    build: bill-service
+    build: ../bill-service
     ports:
       - 8082:8082
     depends_on:
@@ -50,7 +50,7 @@ services:
     restart: on-failure
     container_name: deposit-service
     #    image: deposit-service-test3:latest
-    build: deposit-service
+    build: ../deposit-service
     ports:
       - 9090:9090
     depends_on:
@@ -60,7 +60,7 @@ services:
   payment-service:
     restart: on-failure
     container_name: payment-service
-    build: payment-service
+    build: ../payment-service
     ports:
       #      - 0:8080
       - 8095:8095
@@ -71,7 +71,7 @@ services:
   notification-service:
     restart: on-failure
     container_name: notification-service
-    build: notification-service
+    build: ../notification-service
     depends_on:
       - config-service
       - registry
@@ -99,8 +99,8 @@ services:
     ports:
       - "5432:5432"
     volumes:
-#      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
       - ./init-db:/docker-entrypoint-initdb.d
 
-#volumes:
-#  postgres_data:
+volumes:
+  postgres_data:
